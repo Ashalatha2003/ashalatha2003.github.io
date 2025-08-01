@@ -62,3 +62,31 @@
     <li>Enumerated users from <code>/etc/passwd</code> and <code>/etc/shadow</code></li>
   </ul>
 </div>
+<div class="project">
+  <h2>🧠 Nmap Script Scan & Open Ports</h2>
+  <p>Used Nmap with NSE scripts to detect services and identify open ports on <code>192.168.1.3</code>.</p>
+  <p><strong>Command:</strong> <code>nmap -sV -v --script=nbstat.nse 192.168.1.3</code></p>
+  <p><strong>Ports found:</strong> 7000, 8000, 8001, 8002, 9000 (TCP)</p>
+  <p><strong>Service Identified:</strong> AirTunes (RTSP)</p>
+  <p><strong>Skills:</strong> Port Scanning, Version Detection, Script Scanning</p>
+</div>
+
+<div class="project">
+  <h2>👤 User Enumeration</h2>
+  <p>Inspected system users and passwords using <code>/etc/passwd</code> and <code>/etc/shadow</code> files for privilege analysis.</p>
+  <ul>
+    <li><code>cat /etc/passwd</code> - listed all users and their shells</li>
+    <li><code>cat /etc/shadow</code> - viewed password hashes (for security review)</li>
+    <li><code>pinky</code> - displayed currently logged-in user details</li>
+  </ul>
+  <p><strong>Skills:</strong> Linux Enumeration, Privilege Analysis, System Forensics</p>
+</div>
+
+<div class="project">
+  <h2>🌐 Host Discovery</h2>
+  <p>Performed a ping sweep across subnet <code>192.168.1.1-254</code> to find active devices.</p>
+  <p><strong>Command:</strong> <code>nmap -sn 192.168.1.1-254</code></p>
+  <p><strong>Result:</strong> Multiple live hosts detected with low latency response.</p>
+  <p><strong>Skills:</strong> Network Reconnaissance, Host Discovery</p>
+</div>
+
