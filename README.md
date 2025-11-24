@@ -8,50 +8,47 @@ This site showcases hands-on projects in *OSINT, **network scanning, **ethical h
 ---
 
 ## 🛠 Tools & Technologies Used
-- *Nmap, **Wireshark*
-- *Sherlock, **Dmitry*
-- *Linux terminal & scripts*
-- *HTML/CSS* (for this portfolio site)
+1. OSINT Investigation — Sherlock
 
----
+Goal: Map the public footprint of a username. Tools: Sherlock, Python Summary: Queried 30+ social media platforms, identified active accounts, and assessed exposure. Skills: OSINT, user profiling, exposure assessment Key Command: sherlock virat.kohli
 
-## 📁 Featured Projects
+2. IP Geolocation & Network Path Analysis
 
-### 🔍 OSINT Investigation – Sherlock
-- Found 30+ social media accounts for a given username
-- Tools: Sherlock
-- Skills: OSINT, User Profiling, Python
+Goal: Analyze packet routing and international exposure. Tools: Traceroute, mtr Summary: Traced IP paths across 6+ countries, identified ISP transitions and latency patterns. Skills: Network reconnaissance, geo-risk assessment Key Command: traceroute x.x.x.x | mtr -rw x.x.x.x
 
-### 🌐 IP Geolocation Trace
-- Traced IP hops across multiple countries
-- Tools: Visual traceroute
-- Skills: Network Mapping, IP Analysis
+3. Domain Intelligence — Dmitry (WHOIS & Metadata)
 
-### 🧠 Whois Lookup – Dmitry
-- Gathered domain/IP metadata and ownership info
-- Tools: Dmitry
-- Skills: Reconnaissance, Passive Intelligence
+Goal: Gather domain and hosting information. Tools: Dmitry, Whois, dig Summary: Collected domain metadata, emails, and hosting info for reconnaissance. Skills: Passive intelligence, domain profiling Key Command: dmitry -winse testfire.net
 
-### 🔒 Nmap Scanning & Port Analysis
-- Conducted SYN, Intense, and Script scans
-- Analyzed open ports and services
-- Tools: Nmap
-- Skills: Port Scanning, Service Fingerprinting, NSE Scripts
+4. Scanning & Enumeration — Nmap, Hping3, Wireshark
 
-### 🧪 Packet Analysis – Wireshark
-- Captured and analyzed packets for HTTP and DNS
-- Skills: Deep Packet Inspection
+Goal: Identify hosts, services, and capture traffic behavior. Tools: Nmap, Hping3, Wireshark Summary: Performed service detection, packet-craft analysis, and captured TCP/HTTP flows. Skills: Port scanning, protocol analysis, traffic interpretation Key Commands:
 
-### 👤 User & Host Enumeration
-- Discovered system users, shells, and active hosts
-- Skills: Linux Enumeration, Privilege Checking
+nmap -T4 -A -v 192.x.x.x
+hping3 -S 192.x.x.x -p 80
+sudo tcpdump -i eth0 host 192.x.x.x -w capture.pcap
+5. Scripted Service Detection — Nmap NSE
 
----
+Goal: Detect unusual services and open ports. Tools: Nmap NSE scripts Summary: Found non-standard ports and AirTunes service. Skills: Automated service discovery, baseline deviation Key Command: nmap -sV -v --script=nbstat.nse 192.168.1.3
 
-## 📚 About Me
-I'm passionate about *cybersecurity*, ethical hacking, and system/network analysis.  
-This portfolio is part of my learning journey and supports my applications to cybersecurity programs abroad.
+6. Password Security Audit — John, Hydra, Medusa
 
----
+Goal: Evaluate password strength and detection patterns in lab. Tools: John the Ripper, Hydra, Medusa, rockyou.txt Summary: Cracked hashes, tested login resiliency, observed brute-force detection. Skills: Credential analysis, brute-force pattern recognition Key Commands:
 
+sudo unshadow /etc/passwd /etc/shadow > merged.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt merged.txt
+john --show merged.txt
+hydra -l admin -P rockyou.txt 192.168.x.x http-form-post "/login.php:username=^USER^&password=^PASS^:Invalid"
+medusa -h 192.168.x.x -u admin -P rockyou.txt -M ftp
+medusa -h 192.168.x.x -u testuser -P rockyou.txt -M ssh
+7. Linux User Enumeration
+
+Goal: Map system users and privilege hierarchy. Tools: Linux commands Summary: Reviewed /etc/passwd and /etc/shadow, examined logged-in users. Skills: Privilege analysis, system baseline validation Key Commands:
+
+cat /etc/passwd
+cat /etc/shadow
+pinky
+8. Host Discovery — Subnet Sweep
+
+Goal: Identify active devices in a network. Tools: Nmap Summary: Conducted ping sweep across subnet, validated host inventory. Skills: Asset discovery, network reconnaissance Key Command: nmap -sn 192.x.x.x-254
 © 2025 Ashalatha | GitHub: [@Ashalatha2003](https://github.com/Ashalatha2003)
